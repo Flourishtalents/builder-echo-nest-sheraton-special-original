@@ -53,10 +53,7 @@ function App() {
                 path="/concierge"
                 element={<PlaceholderPage section="Concierge Services" />}
               />
-              <Route
-                path="/reviews"
-                element={<PlaceholderPage section="Reviews & Feedback" />}
-              />
+              <Route path="/reviews" element={<ReviewsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
