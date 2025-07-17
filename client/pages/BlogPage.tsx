@@ -11,7 +11,7 @@ import {
   Camera,
   MapPin,
   Award,
-  Trending,
+  TrendingUp,
   Search,
   Filter,
   Plus,
