@@ -536,7 +536,7 @@ const BlogPage: React.FC = () => {
   const renderTrending = () => (
     <div className="space-y-6">
       <h3 className="text-xl font-semibold text-sheraton-navy flex items-center">
-        <Trending className="h-5 w-5 mr-2 text-sheraton-gold" />
+        <TrendingUp className="h-5 w-5 mr-2 text-sheraton-gold" />
         Trending Topics
       </h3>
 
