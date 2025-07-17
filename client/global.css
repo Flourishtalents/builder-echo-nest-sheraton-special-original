@@ -4,10 +4,9 @@
 
 @layer base {
   /**
-   * Tailwind CSS theme
-   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
-   * A different format will require also updating the theme in tailwind.config.ts.
-  */
+   * Sheraton Special - Luxury Hotel App Theme
+   * Elegant color palette inspired by luxury hospitality
+   */
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -40,20 +39,22 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Sheraton Brand Colors */
+    --sheraton-gold: 45 86% 58%;
+    --sheraton-gold-light: 48 90% 70%;
+    --sheraton-gold-dark: 42 82% 45%;
+    --sheraton-navy: 222 47% 11%;
+    --sheraton-navy-light: 222 40% 20%;
+    --sheraton-cream: 48 33% 96%;
+    --sheraton-pearl: 210 17% 95%;
   }
 
   .dark {
@@ -84,6 +85,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -92,6 +94,15 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark mode Sheraton colors */
+    --sheraton-gold: 45 86% 65%;
+    --sheraton-gold-light: 48 90% 75%;
+    --sheraton-gold-dark: 42 82% 50%;
+    --sheraton-navy: 222 47% 15%;
+    --sheraton-navy-light: 222 40% 25%;
+    --sheraton-cream: 48 20% 8%;
+    --sheraton-pearl: 210 10% 10%;
   }
 }
 
@@ -102,5 +113,61 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+@layer components {
+  .sheraton-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--sheraton-gold)) 0%,
+      hsl(var(--sheraton-gold-dark)) 100%
+    );
+  }
+
+  .sheraton-hero-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--sheraton-navy)) 0%,
+      hsl(var(--sheraton-navy-light)) 50%,
+      hsl(var(--sheraton-gold-dark)) 100%
+    );
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .luxury-shadow {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .text-shimmer {
+    background: linear-gradient(
+      45deg,
+      hsl(var(--sheraton-gold)),
+      hsl(var(--sheraton-gold-light)),
+      hsl(var(--sheraton-gold))
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 }
