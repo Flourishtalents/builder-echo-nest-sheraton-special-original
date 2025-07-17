@@ -253,6 +253,11 @@ const Header = () => {
                 Staff Portal
               </Button>
             </Link>
+            <Link to="/register">
+              <Button variant="ghost" size="sm" className="text-xs">
+                Join Special
+              </Button>
+            </Link>
             <Link to="/profile">
               <Button
                 variant="outline"
