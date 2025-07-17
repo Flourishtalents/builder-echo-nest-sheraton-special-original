@@ -222,7 +222,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-6 text-center text-xs text-gray-400">
+                    <div className="mt-6 text-center text-xs text-gray-400">
             <p>
               Making every guest feel special through technology, hospitality,
               and personalized experiences.
@@ -230,6 +230,11 @@ const Footer = () => {
               Your journey to extraordinary begins here.
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* Floating Feedback Button */}
+      <QuickFeedback section="Overall Experience" position="bottom-right" />
         </div>
       </div>
     </footer>
