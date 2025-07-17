@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import {
   Crown,
@@ -138,6 +143,8 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const CurrentOfferIcon = specialOffers[currentOffer].icon;
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -151,13 +158,13 @@ const HomePage = () => {
                 You Are Special
               </Badge>
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               {getGreeting()},
               <br />
               <span className="text-shimmer">Special Guest</span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
               Welcome to Sheraton Special - where technology meets hospitality
               to create extraordinary moments that make you feel truly special,
@@ -190,8 +197,12 @@ const HomePage = () => {
             <div className="glass-effect rounded-2xl p-6 max-w-md mx-auto">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <specialOffers[currentOffer].icon className={`h-5 w-5 ${specialOffers[currentOffer].color}`} />
-                  <span className="font-semibold">{specialOffers[currentOffer].title}</span>
+                  <CurrentOfferIcon
+                    className={`h-5 w-5 ${specialOffers[currentOffer].color}`}
+                  />
+                  <span className="font-semibold">
+                    {specialOffers[currentOffer].title}
+                  </span>
                 </div>
                 <Badge variant="secondary" className="bg-white/20 text-white">
                   {specialOffers[currentOffer].time}
@@ -213,8 +224,8 @@ const HomePage = () => {
               What Makes You Special
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experience exclusive features designed to make every moment of your stay
-              effortless, personalized, and truly memorable.
+              Experience exclusive features designed to make every moment of
+              your stay effortless, personalized, and truly memorable.
             </p>
           </div>
 
@@ -224,10 +235,14 @@ const HomePage = () => {
                 <Card className="group hover:scale-105 transition-all duration-300 luxury-shadow hover:shadow-2xl border-0 overflow-hidden">
                   <div className={`h-2 bg-gradient-to-r ${feature.gradient}`} />
                   <CardHeader className="text-center">
-                    <div className={`w-16 h-16 mx-auto rounded-full bg-gradient-to-r ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <div
+                      className={`w-16 h-16 mx-auto rounded-full bg-gradient-to-r ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                    >
                       <feature.icon className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-sheraton-navy">{feature.title}</CardTitle>
+                    <CardTitle className="text-sheraton-navy">
+                      {feature.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-center text-muted-foreground">
@@ -288,8 +303,8 @@ const HomePage = () => {
                 Stay Connected, Stay Special
               </h2>
               <p className="text-lg text-muted-foreground">
-                Real-time updates and personalized notifications keep you in the loop
-                for all special moments and exclusive offers.
+                Real-time updates and personalized notifications keep you in the
+                loop for all special moments and exclusive offers.
               </p>
             </div>
 
@@ -303,7 +318,7 @@ const HomePage = () => {
                   Get timely alerts for meals, events, and special offers
                 </p>
               </Card>
-              
+
               <Card className="text-center p-6 border-sheraton-gold border-2">
                 <Zap className="h-12 w-12 text-sheraton-gold mx-auto mb-4" />
                 <h3 className="font-semibold text-sheraton-navy mb-2">
@@ -313,7 +328,7 @@ const HomePage = () => {
                   Skip queues and get priority access to everything
                 </p>
               </Card>
-              
+
               <Card className="text-center p-6 border-sheraton-gold border-2">
                 <Heart className="h-12 w-12 text-sheraton-gold mx-auto mb-4" />
                 <h3 className="font-semibold text-sheraton-navy mb-2">
@@ -337,7 +352,8 @@ const HomePage = () => {
                 Why Sheraton Special?
               </h2>
               <p className="text-lg text-muted-foreground">
-                Experience the perfect blend of luxury, technology, and personalized service
+                Experience the perfect blend of luxury, technology, and
+                personalized service
               </p>
             </div>
 
@@ -346,32 +362,48 @@ const HomePage = () => {
                 <div className="w-16 h-16 mx-auto rounded-full sheraton-gradient flex items-center justify-center">
                   <Award className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-sheraton-navy">5-Star Luxury</h3>
-                <p className="text-sm text-muted-foreground">Uncompromising quality</p>
+                <h3 className="font-semibold text-sheraton-navy">
+                  5-Star Luxury
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Uncompromising quality
+                </p>
               </div>
-              
+
               <div className="space-y-2">
                 <div className="w-16 h-16 mx-auto rounded-full sheraton-gradient flex items-center justify-center">
                   <Shield className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-sheraton-navy">Secure & Private</h3>
-                <p className="text-sm text-muted-foreground">Your data protected</p>
+                <h3 className="font-semibold text-sheraton-navy">
+                  Secure & Private
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Your data protected
+                </p>
               </div>
-              
+
               <div className="space-y-2">
                 <div className="w-16 h-16 mx-auto rounded-full sheraton-gradient flex items-center justify-center">
                   <Clock className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-sheraton-navy">24/7 Service</h3>
-                <p className="text-sm text-muted-foreground">Always here for you</p>
+                <h3 className="font-semibold text-sheraton-navy">
+                  24/7 Service
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Always here for you
+                </p>
               </div>
-              
+
               <div className="space-y-2">
                 <div className="w-16 h-16 mx-auto rounded-full sheraton-gradient flex items-center justify-center">
                   <Sparkles className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-semibold text-sheraton-navy">Special Status</h3>
-                <p className="text-sm text-muted-foreground">You deserve the best</p>
+                <h3 className="font-semibold text-sheraton-navy">
+                  Special Status
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  You deserve the best
+                </p>
               </div>
             </div>
           </div>
@@ -387,8 +419,9 @@ const HomePage = () => {
               Ready to Feel Special?
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Join our community of special guests and discover what makes every stay
-              an extraordinary experience. Your journey to feeling truly special starts now.
+              Join our community of special guests and discover what makes every
+              stay an extraordinary experience. Your journey to feeling truly
+              special starts now.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/profile">
