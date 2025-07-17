@@ -49,10 +49,7 @@ function App() {
                 path="/fitness"
                 element={<PlaceholderPage section="Fitness Center" />}
               />
-              <Route
-                path="/concierge"
-                element={<PlaceholderPage section="Concierge Services" />}
-              />
+              <Route path="/concierge" element={<ConciergePage />} />
               <Route path="/reviews" element={<ReviewsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
