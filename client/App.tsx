@@ -1,30 +1,65 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import HomePage from "./pages/HomePage";
+import BookingPage from "./pages/BookingPage";
+import MenuPage from "./pages/MenuPage";
+import ProfilePage from "./pages/ProfilePage";
+import StaffPortalPage from "./pages/StaffPortalPage";
+import ManagementPage from "./pages/ManagementPage";
+import TravelDeskPage from "./pages/TravelDeskPage";
+import EventsPage from "./pages/EventsPage";
+import BlogPage from "./pages/BlogPage";
+import ShopPage from "./pages/ShopPage";
+import NotFound from "./pages/NotFound";
+import PlaceholderPage from "./pages/PlaceholderPage";
+import { Toaster } from "./components/ui/sonner";
 import "./global.css";
 
-import { Toaster } from "@/components/ui/toaster";
-import { createRoot } from "react-dom/client";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
+function App() {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="min-h-screen bg-background flex flex-col">
+          <Header />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/book" element={<BookingPage />} />
+              <Route path="/menu" element={<MenuPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/staff" element={<StaffPortalPage />} />
+              <Route path="/management" element={<ManagementPage />} />
+              <Route path="/travel" element={<TravelDeskPage />} />
+              <Route path="/events" element={<EventsPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/shop" element={<ShopPage />} />
+              <Route
+                path="/spa"
+                element={<PlaceholderPage section="Spa & Wellness" />}
+              />
+              <Route
+                path="/fitness"
+                element={<PlaceholderPage section="Fitness Center" />}
+              />
+              <Route
+                path="/concierge"
+                element={<PlaceholderPage section="Concierge Services" />}
+              />
+              <Route
+                path="/reviews"
+                element={<PlaceholderPage section="Reviews & Feedback" />}
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+          <Toaster />
+        </div>
       </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    </ThemeProvider>
+  );
+}
 
-createRoot(document.getElementById("root")!).render(<App />);
+export default App;
