@@ -26,7 +26,7 @@ import {
   Bell,
   Heart,
 } from "lucide-react";
-import { cn } from "../lib/utils";
+import { cn } from "../../lib/utils";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
