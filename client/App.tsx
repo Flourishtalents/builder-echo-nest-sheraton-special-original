@@ -38,6 +38,9 @@ function App() {
               <Route path="/events" element={<EventsPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/shop" element={<ShopPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/reviews" element={<ReviewsPage />} />
+              <Route path="/concierge" element={<ConciergePage />} />
               <Route
                 path="/spa"
                 element={<PlaceholderPage section="Spa & Wellness" />}
