@@ -78,6 +78,7 @@ import {
   Gift,
   AlertCircle,
   Info,
+  Shield,
   ArrowRight,
   ExternalLink,
   FileText,
