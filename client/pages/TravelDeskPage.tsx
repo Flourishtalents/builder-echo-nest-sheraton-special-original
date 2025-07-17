@@ -79,6 +79,7 @@ import {
   AlertCircle,
   Info,
   Shield,
+  MessageSquare,
   ArrowRight,
   ExternalLink,
   FileText,
